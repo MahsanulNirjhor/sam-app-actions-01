@@ -13,14 +13,14 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
-      - run: pip install -r requirements.txt
+          python-version: '3.9'
+      # - run: pip install -r requirements.txt
       - run: pip install aws-sam-cli
       - run: sam build
       - run: sam deploy --no-confirm-changeset --stack-name dev-stack --region us-east-1  # Specify dev stack and region
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.BETA_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.BETA_ACCESS_KEY }}
 
   deploy-prod:
     needs: deploy-dev  # Ensure dev deployment is successful before prod
