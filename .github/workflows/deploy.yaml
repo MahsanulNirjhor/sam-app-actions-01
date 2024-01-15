@@ -15,7 +15,8 @@ jobs:
         with:
           python-version: '3.9'
       # - run: pip install -r requirements.txt
-      - run: sam delete --no-confirm-changeset --region us-east-1
+      - run: sam delete --stack-name dev-stack --region us-east-1
+      - run: sam delete --stack-name prod-stack --region us-east-1
       # - run: pip install aws-sam-cli
       # - run: sam build
       # - run: sam deploy --region us-east-1 --no-confirm-changeset
