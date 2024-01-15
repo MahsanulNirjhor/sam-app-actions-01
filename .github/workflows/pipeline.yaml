@@ -19,6 +19,7 @@ jobs:
           python3 -m pytest tests/unit  
 
   deploy-dev:
+    needs: test  # Ensure test is successful before deployment
     runs-on: ubuntu-latest
 
     steps:
